@@ -1,4 +1,10 @@
 oneclaw.com.cn, www.oneclaw.com.cn {
-    root * /srv
+    root * /workspace/homepage/site
+
+    handle_path /projects/* {
+        root * /workspace/projects
+        file_server
+    }
+
     file_server
 }

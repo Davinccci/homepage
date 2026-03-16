@@ -340,6 +340,7 @@
     .projects-display {
       position: relative;
       padding: 24px;
+      min-height: calc(100vh - 120px);
       background:
         radial-gradient(circle at top right, rgba(255, 255, 255, 0.9), transparent 24%),
         linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(243, 243, 240, 0.8));
@@ -350,7 +351,7 @@
       inset: 24px;
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: minmax(320px, 1.1fr) minmax(0, 0.9fr);
+      grid-template-rows: minmax(320px, 1fr) auto;
       gap: 18px;
       opacity: 0;
       transform: translateY(30px) scale(0.985);
@@ -374,38 +375,58 @@
 
     .project-copy {
       order: 2;
-      padding: 30px;
+      padding: 18px 20px 20px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
       background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 244, 240, 0.86));
     }
 
+    .project-copy-main {
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: end;
+    }
+
     .project-kicker {
-      margin-bottom: 14px;
+      margin-bottom: 6px;
       font-weight: 700;
     }
 
     .project-copy h2 {
-      margin: 0 0 14px;
+      margin: 0 0 6px;
       font-family: var(--serif);
-      font-size: clamp(30px, 3.4vw, 48px);
+      font-size: clamp(22px, 2vw, 28px);
       font-weight: 600;
-      line-height: 1.02;
+      line-height: 1.06;
       letter-spacing: -0.04em;
+      max-width: 100%;
+    }
+
+    .project-copy p {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.5;
+      max-width: 30rem;
+      color: #5a5a5f;
     }
 
     .project-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 30px;
+      gap: 6px;
+      margin-top: 0;
+      justify-content: flex-end;
+      align-self: center;
     }
 
     .project-chip {
-      padding: 10px 14px;
-      font-size: 13px;
+      padding: 7px 10px;
+      font-size: 11px;
       font-weight: 600;
       background: rgba(255, 255, 255, 0.88);
     }
@@ -413,20 +434,20 @@
     .project-link-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
+      gap: 6px;
+      margin-top: 8px;
     }
 
     .project-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 120px;
-      padding: 12px 16px;
+      min-width: 100px;
+      padding: 9px 12px;
       border-radius: 999px;
       border: 1px solid var(--line);
       background: rgba(255, 255, 255, 0.9);
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 600;
       transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
     }
@@ -446,6 +467,9 @@
       order: 1;
       position: relative;
       min-height: 0;
+      display: grid;
+      place-items: center;
+      padding: 14px;
       background:
         linear-gradient(145deg, rgba(252, 252, 251, 0.98), rgba(236, 236, 232, 0.9));
       isolation: isolate;
@@ -467,23 +491,72 @@
       pointer-events: none;
     }
 
-    .project-visual::after {
-      content: "";
-      position: absolute;
-      inset: 20px;
-      border-radius: 24px;
-      border: 1px solid rgba(15, 15, 16, 0.08);
-      pointer-events: none;
+    .project-preview-frame {
+      width: min(100%, 920px);
+      aspect-ratio: 16 / 9;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      border-radius: 30px;
+      border: 1px solid rgba(15, 15, 16, 0.06);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.85), transparent 26%),
+        linear-gradient(145deg, rgba(242,242,238,0.98), rgba(231,231,226,0.9));
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.8),
+        0 28px 60px rgba(15, 15, 16, 0.1);
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
     }
 
     .project-preview {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
+      width: calc(100% - 48px);
+      height: calc(100% - 48px);
       position: relative;
       z-index: 1;
+      border-radius: 20px;
+      border: 1px solid rgba(15, 15, 16, 0.08);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,248,0.98));
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.88),
+        0 18px 36px rgba(15, 15, 16, 0.08);
+    }
+
+    .project-preview-frame.ratio-wide {
+      aspect-ratio: 16 / 9;
+    }
+
+    .project-preview-frame.ratio-standard {
+      aspect-ratio: 4 / 3;
+    }
+
+    .project-preview-frame.ratio-tall {
+      aspect-ratio: 4 / 5;
+      width: min(100%, 760px);
+    }
+
+    .project-empty {
+      width: min(100%, 760px);
+      aspect-ratio: 16 / 9;
+      display: grid;
+      place-items: center;
+      border-radius: 28px;
+      border: 1px dashed rgba(15, 15, 16, 0.14);
+      color: var(--ink-soft);
+      background: rgba(255, 255, 255, 0.52);
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-empty span {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 12px;
     }
 
     .visual-frame,
@@ -657,7 +730,7 @@
       }
 
       .projects-display {
-        min-height: 980px;
+        min-height: 860px;
       }
 
       .project-panel {
@@ -666,6 +739,14 @@
 
       .project-step {
         display: none;
+      }
+
+      .project-copy-main {
+        grid-template-columns: 1fr;
+      }
+
+      .project-meta {
+        justify-content: flex-start;
       }
     }
 
@@ -700,7 +781,7 @@
       }
 
       .projects-display {
-        min-height: 820px;
+        min-height: 700px;
         padding: 16px;
       }
 
@@ -709,7 +790,17 @@
       }
 
       .project-visual {
-        min-height: 280px;
+        min-height: 200px;
+        padding: 12px;
+      }
+
+      .project-copy {
+        padding: 18px;
+      }
+
+      .project-preview-frame {
+        padding: 16px;
+        border-radius: 24px;
       }
 
       .project-nav.active {
@@ -717,7 +808,7 @@
       }
 
       footer {
-        display: block;
+        display: grid;
       }
 
       footer div + div {
@@ -760,111 +851,13 @@
 
     <section class="projects" id="projects">
       <div class="projects-stage">
-        <div class="projects-list">
+        <div class="projects-list" id="projectsList">
           <div class="projects-title">我的项目</div>
-          <article class="project-nav active" data-project="1">
-            <div class="project-index">01</div>
-            <div>
-              <strong>Choose Your City</strong>
-              <span>通过问答匹配城市风格的交互网页项目。</span>
-            </div>
-          </article>
-          <article class="project-nav" data-project="2">
-            <div class="project-index">02</div>
-            <div>
-              <strong>工具集合</strong>
-              <span>放置可直接使用的小工具与交互功能。</span>
-            </div>
-          </article>
-          <article class="project-nav" data-project="3">
-            <div class="project-index">03</div>
-            <div>
-              <strong>实验项目</strong>
-              <span>记录一些仍在迭代中的页面、想法和原型。</span>
-            </div>
-          </article>
         </div>
 
-        <div class="projects-display">
-          <article class="project-panel panel-one active" data-project="1">
-            <section class="project-copy">
-              <div>
-                <div class="project-kicker">项目展示</div>
-                <h2>Choose Your City</h2>
-                <p>一个通过偏好问答匹配城市风格的交互网页。当前已作为独立子项目接入主页，并部署到个人网站的项目路径下。</p>
-                <div class="project-link-bar">
-                  <a class="project-link primary" href="/projects/choose-your-city/">打开项目</a>
-                  <a class="project-link" href="https://github.com/Davinccci/ChooseYourCity" target="_blank" rel="noreferrer">查看仓库</a>
-                </div>
-              </div>
-              <div class="project-meta">
-                <span class="project-chip">网页</span>
-                <span class="project-chip">交互</span>
-                <span class="project-chip">城市匹配</span>
-              </div>
-            </section>
-            <section class="project-visual">
-              <img class="project-preview" src="/assets/projects/choose-your-city-cover.png" alt="Choose Your City 项目预览" />
-            </section>
-          </article>
-
-          <article class="project-panel panel-two" data-project="2">
-            <section class="project-copy">
-              <div>
-                <div class="project-kicker">项目展示</div>
-                <h2>工具集合</h2>
-                <p>以后能直接点开使用的工具会统一放在这里，保持简单、明确、方便访问。信息卡和预览结构延续统一布局，便于后续继续扩展。</p>
-              </div>
-              <div class="project-meta">
-                <span class="project-chip">工具</span>
-                <span class="project-chip">效率</span>
-                <span class="project-chip">交互</span>
-              </div>
-            </section>
-            <section class="project-visual">
-              <div class="visual-frame"></div>
-              <div class="visual-column left"></div>
-              <div class="visual-column right"></div>
-              <div class="visual-card"></div>
-              <div class="visual-line one"></div>
-              <div class="visual-line two"></div>
-              <div class="visual-line three"></div>
-              <div class="visual-dot"></div>
-              <div class="visual-badge">Toolkit</div>
-            </section>
-          </article>
-
-          <article class="project-panel panel-three" data-project="3">
-            <section class="project-copy">
-              <div>
-                <div class="project-kicker">项目展示</div>
-                <h2>实验项目</h2>
-                <p>一些还在探索中的想法和原型会先出现在这里，逐步从概念长成完整项目。滚动切换时仍然保持当前逻辑，只是让展示更稳、更清晰。</p>
-              </div>
-              <div class="project-meta">
-                <span class="project-chip">原型</span>
-                <span class="project-chip">实验</span>
-                <span class="project-chip">迭代</span>
-              </div>
-            </section>
-            <section class="project-visual">
-              <div class="visual-frame"></div>
-              <div class="visual-column left"></div>
-              <div class="visual-column right"></div>
-              <div class="visual-card"></div>
-              <div class="visual-line one"></div>
-              <div class="visual-line two"></div>
-              <div class="visual-line three"></div>
-              <div class="visual-dot"></div>
-              <div class="visual-badge">Lab</div>
-            </section>
-          </article>
-        </div>
+        <div class="projects-display" id="projectsDisplay"></div>
       </div>
-
-      <div class="project-step" data-project="1"></div>
-      <div class="project-step" data-project="2"></div>
-      <div class="project-step" data-project="3"></div>
+      <div id="projectSteps"></div>
     </section>
 
     <footer>
@@ -875,39 +868,173 @@
 
   <script>
     (function () {
-      const steps = Array.from(document.querySelectorAll('.project-step'));
-      const navs = Array.from(document.querySelectorAll('.project-nav'));
-      const panels = Array.from(document.querySelectorAll('.project-panel'));
       const body = document.body;
+      const listEl = document.getElementById('projectsList');
+      const displayEl = document.getElementById('projectsDisplay');
+      const stepsEl = document.getElementById('projectSteps');
 
-      function activate(id) {
-        navs.forEach(function (item) {
-          item.classList.toggle('active', item.dataset.project === id);
+      function escapeHtml(value) {
+        return String(value).replace(/[&<>"']/g, function (char) {
+          return {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;'
+          }[char];
         });
-        panels.forEach(function (item) {
-          item.classList.toggle('active', item.dataset.project === id);
-        });
-        body.setAttribute('data-theme', id);
       }
 
-      if (!('IntersectionObserver' in window) || window.innerWidth < 1081) {
-        activate('1');
-        return;
+      function getRatioClass(project) {
+        if (!project || !project.ratio) {
+          return 'ratio-wide';
+        }
+
+        if (project.ratio === 'standard') {
+          return 'ratio-standard';
+        }
+
+        if (project.ratio === 'tall') {
+          return 'ratio-tall';
+        }
+
+        return 'ratio-wide';
       }
 
-      const observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            activate(entry.target.dataset.project);
+      function renderProjects(projects) {
+        const items = projects.filter(function (project) {
+          return project.status === 'online';
+        });
+
+        listEl.innerHTML = '<div class="projects-title">我的项目</div>';
+        displayEl.innerHTML = '';
+        stepsEl.innerHTML = '';
+
+        items.forEach(function (project, index) {
+          const id = String(index + 1);
+          const isActive = index === 0;
+          const ratioClass = getRatioClass(project);
+          const nav = document.createElement('article');
+          nav.className = 'project-nav' + (isActive ? ' active' : '');
+          nav.dataset.project = id;
+          nav.innerHTML =
+            '<div class="project-index">' + String(index + 1).padStart(2, '0') + '</div>' +
+            '<div><strong>' + escapeHtml(project.name) + '</strong><span>' +
+            escapeHtml(project.subtitle || project.description || '') +
+            '</span></div>';
+          listEl.appendChild(nav);
+
+          const panel = document.createElement('article');
+          panel.className = 'project-panel' + (isActive ? ' active' : '');
+          panel.dataset.project = id;
+          panel.innerHTML =
+            '<section class="project-copy">' +
+              '<div class="project-copy-main">' +
+                '<div>' +
+                  '<div class="project-kicker">项目展示</div>' +
+                  '<h2>' + escapeHtml(project.name) + '</h2>' +
+                  '<p>' + escapeHtml(project.description || '') + '</p>' +
+                  '<div class="project-link-bar">' +
+                    '<a class="project-link primary" href="' + escapeHtml(project.url || '#') + '">打开项目</a>' +
+                    (project.repo ? '<a class="project-link" href="' + escapeHtml(project.repo) + '" target="_blank" rel="noreferrer">查看仓库</a>' : '') +
+                  '</div>' +
+                '</div>' +
+                '<div class="project-meta">' +
+                  (Array.isArray(project.tags) ? project.tags.slice(0, 3).map(function (tag) {
+                    return '<span class="project-chip">' + escapeHtml(tag) + '</span>';
+                  }).join('') : '') +
+                '</div>' +
+              '</div>' +
+            '</section>' +
+            '<section class="project-visual">' +
+              (project.cover
+                ? '<div class="project-preview-frame ' + ratioClass + '"><div class="project-preview" role="img" aria-label="' + escapeHtml(project.name) + ' 项目预览" style="background-image:url(\'' + escapeHtml(project.cover) + '\')"></div></div>'
+                : '<div class="project-empty"><span>No Preview</span></div>') +
+            '</section>';
+          displayEl.appendChild(panel);
+
+          const step = document.createElement('div');
+          step.className = 'project-step';
+          step.dataset.project = id;
+          stepsEl.appendChild(step);
+        });
+
+        const navs = Array.from(document.querySelectorAll('.project-nav'));
+        const panels = Array.from(document.querySelectorAll('.project-panel'));
+        const steps = Array.from(document.querySelectorAll('.project-step'));
+
+        function activate(id) {
+          navs.forEach(function (item) {
+            item.classList.toggle('active', item.dataset.project === id);
+          });
+          panels.forEach(function (item) {
+            item.classList.toggle('active', item.dataset.project === id);
+          });
+          body.setAttribute('data-theme', String(((Number(id) - 1) % 3) + 1));
+        }
+
+        navs.forEach(function (nav) {
+          nav.addEventListener('click', function () {
+            activate(nav.dataset.project);
+          });
+        });
+
+        if (!steps.length) {
+          return;
+        }
+
+        if (!('IntersectionObserver' in window) || window.innerWidth < 1081) {
+          activate('1');
+          return;
+        }
+
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              activate(entry.target.dataset.project);
+            }
+          });
+        }, {
+          threshold: 0.55
+        });
+
+        steps.forEach(function (step) {
+          observer.observe(step);
+        });
+      }
+
+      function renderEmptyState() {
+        listEl.innerHTML = '<div class="projects-title">我的项目</div>';
+        displayEl.innerHTML =
+          '<article class="project-panel active" data-project="1">' +
+            '<section class="project-copy">' +
+              '<div class="project-copy-main">' +
+                '<div>' +
+                  '<div class="project-kicker">项目展示</div>' +
+                  '<h2>暂无项目数据</h2>' +
+                  '<p>请在 projects.json 中添加项目配置，并在 assets/projects/ 中放入封面图。</p>' +
+                '</div>' +
+              '</div>' +
+            '</section>' +
+            '<section class="project-visual">' +
+              '<div class="project-empty"><span>Waiting For Projects</span></div>' +
+            '</section>' +
+          '</article>';
+        stepsEl.innerHTML = '';
+        body.setAttribute('data-theme', '1');
+      }
+
+      fetch('/projects.json')
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error('Failed to load projects');
           }
+          return response.json();
+        })
+        .then(renderProjects)
+        .catch(function () {
+          renderEmptyState();
         });
-      }, {
-        threshold: 0.55
-      });
-
-      steps.forEach(function (step) {
-        observer.observe(step);
-      });
     }());
   </script>
 </body>
