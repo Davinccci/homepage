@@ -349,7 +349,8 @@
       position: absolute;
       inset: 24px;
       display: grid;
-      grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1fr);
+      grid-template-columns: 1fr;
+      grid-template-rows: minmax(320px, 1.1fr) minmax(0, 0.9fr);
       gap: 18px;
       opacity: 0;
       transform: translateY(30px) scale(0.985);
@@ -372,6 +373,7 @@
     }
 
     .project-copy {
+      order: 2;
       padding: 30px;
       display: flex;
       flex-direction: column;
@@ -441,8 +443,9 @@
     }
 
     .project-visual {
+      order: 1;
       position: relative;
-      min-height: 520px;
+      min-height: 0;
       background:
         linear-gradient(145deg, rgba(252, 252, 251, 0.98), rgba(236, 236, 232, 0.9));
       isolation: isolate;
@@ -654,7 +657,7 @@
       }
 
       .projects-display {
-        min-height: 880px;
+        min-height: 980px;
       }
 
       .project-panel {
@@ -697,7 +700,7 @@
       }
 
       .projects-display {
-        min-height: 760px;
+        min-height: 820px;
         padding: 16px;
       }
 
@@ -706,7 +709,7 @@
       }
 
       .project-visual {
-        min-height: 360px;
+        min-height: 280px;
       }
 
       .project-nav.active {
