@@ -1,0 +1,4 @@
+oneclaw.com.cn, www.oneclaw.com.cn {
+    root * /srv
+    file_server
+}
