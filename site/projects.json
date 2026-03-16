@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "choose-your-city",
+    "name": "Choose Your City",
+    "subtitle": "城市选择交互页面",
+    "description": "一个用于展示城市选择体验的静态网页项目。",
+    "tags": ["网页", "交互", "实验"],
+    "cover": "/projects/choose-your-city/assets/cover.jpg",
+    "gallery": [
+      "/projects/choose-your-city/assets/cover.jpg",
+      "/projects/choose-your-city/assets/screen-1.jpg",
+      "/projects/choose-your-city/assets/screen-2.jpg"
+    ],
+    "url": "/projects/choose-your-city/",
+    "repo": "https://github.com/Davinccci/ChooseYourCity",
+    "status": "online"
+  },
+  {
+    "slug": "toolkit-demo",
+    "name": "Toolkit Demo",
+    "subtitle": "工具类页面示例",
+    "description": "用于说明主页接入格式的演示项目。",
+    "tags": ["工具", "效率", "静态页"],
+    "cover": "/projects/toolkit-demo/assets/cover.jpg",
+    "gallery": [
+      "/projects/toolkit-demo/assets/cover.jpg"
+    ],
+    "url": "/projects/toolkit-demo/",
+    "repo": "https://github.com/Davinccci/homepage",
+    "status": "draft"
+  }
+]
