@@ -3,13 +3,12 @@
     "slug": "choose-your-city",
     "name": "Choose Your City",
     "subtitle": "城市选择交互页面",
-    "description": "一个用于展示城市选择体验的静态网页项目。",
+    "description": "通过问答匹配城市风格的交互网页，支持本地模板结果和 AI 解读增强。",
     "tags": ["网页", "交互", "实验"],
-    "cover": "/projects/choose-your-city/assets/cover.jpg",
+    "cover": "/projects/choose-your-city/assets/cover.png",
     "gallery": [
-      "/projects/choose-your-city/assets/cover.jpg",
-      "/projects/choose-your-city/assets/screen-1.jpg",
-      "/projects/choose-your-city/assets/screen-2.jpg"
+      "/projects/choose-your-city/assets/cover.png",
+      "/projects/choose-your-city/assets/full.png"
     ],
     "url": "/projects/choose-your-city/",
     "repo": "https://github.com/Davinccci/ChooseYourCity",

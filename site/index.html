@@ -408,6 +408,38 @@
       background: rgba(255, 255, 255, 0.88);
     }
 
+    .project-link-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 120px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 13px;
+      font-weight: 600;
+      transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+    }
+
+    .project-link.primary {
+      background: var(--ink);
+      color: #ffffff;
+      border-color: var(--ink);
+    }
+
+    .project-link:hover {
+      transform: translateY(-2px);
+      border-color: var(--line-strong);
+    }
+
     .project-visual {
       position: relative;
       min-height: 520px;
@@ -439,6 +471,16 @@
       border-radius: 24px;
       border: 1px solid rgba(15, 15, 16, 0.08);
       pointer-events: none;
+    }
+
+    .project-preview {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      position: relative;
+      z-index: 1;
     }
 
     .visual-frame,
@@ -720,8 +762,8 @@
           <article class="project-nav active" data-project="1">
             <div class="project-index">01</div>
             <div>
-              <strong>网页归档</strong>
-              <span>收纳已经完成的网页页面与视觉实验。</span>
+              <strong>Choose Your City</strong>
+              <span>通过问答匹配城市风格的交互网页项目。</span>
             </div>
           </article>
           <article class="project-nav" data-project="2">
@@ -745,25 +787,21 @@
             <section class="project-copy">
               <div>
                 <div class="project-kicker">项目展示</div>
-                <h2>网页归档</h2>
-                <p>未来做好的网页会放在这里，用更完整的方式呈现设计、排版和交互细节。展示区保留动态切换，但视觉语言改成更克制的黑白层次。</p>
+                <h2>Choose Your City</h2>
+                <p>一个通过偏好问答匹配城市风格的交互网页。当前已作为独立子项目接入主页，并部署到个人网站的项目路径下。</p>
+                <div class="project-link-bar">
+                  <a class="project-link primary" href="/projects/choose-your-city/">打开项目</a>
+                  <a class="project-link" href="https://github.com/Davinccci/ChooseYourCity" target="_blank" rel="noreferrer">查看仓库</a>
+                </div>
               </div>
               <div class="project-meta">
-                <span class="project-chip">页面</span>
-                <span class="project-chip">视觉</span>
-                <span class="project-chip">归档</span>
+                <span class="project-chip">网页</span>
+                <span class="project-chip">交互</span>
+                <span class="project-chip">城市匹配</span>
               </div>
             </section>
             <section class="project-visual">
-              <div class="visual-frame"></div>
-              <div class="visual-column left"></div>
-              <div class="visual-column right"></div>
-              <div class="visual-card"></div>
-              <div class="visual-line one"></div>
-              <div class="visual-line two"></div>
-              <div class="visual-line three"></div>
-              <div class="visual-dot"></div>
-              <div class="visual-badge">Archive</div>
+              <img class="project-preview" src="/assets/projects/choose-your-city-cover.png" alt="Choose Your City 项目预览" />
             </section>
           </article>
 
