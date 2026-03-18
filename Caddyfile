@@ -1,4 +1,25 @@
 oneclaw.com.cn, www.oneclaw.com.cn {
+    redir /choose-your-city /choose-your-city/
+    redir /projects/choose-your-city /projects/choose-your-city/
+    redir /gold-price-live /gold-price-live/
+    redir /projects/gold-price-live /projects/gold-price-live/
+
+    handle_path /choose-your-city/* {
+        reverse_proxy 10.255.0.1:3000
+    }
+
+    handle_path /projects/choose-your-city/* {
+        reverse_proxy 10.255.0.1:3000
+    }
+
+    handle_path /gold-price-live/* {
+        reverse_proxy 10.255.0.1:3001
+    }
+
+    handle_path /projects/gold-price-live/* {
+        reverse_proxy 10.255.0.1:3001
+    }
+
     root * /workspace/homepage/site
 
     handle_path /projects/* {

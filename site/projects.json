@@ -1,5 +1,20 @@
 [
   {
+    "slug": "gold-price-live",
+    "name": "Gold Pulse",
+    "subtitle": "实时金价展示页面",
+    "description": "实时查看国际现货黄金、国内人民币参考金价，并用自绘图表展示今日走势。",
+    "tags": ["数据可视化", "实时", "网页"],
+    "cover": "/assets/projects/gold-price-live-cover.svg",
+    "ratio": "wide",
+    "gallery": [
+      "/projects/gold-price-live/assets/cover.svg"
+    ],
+    "url": "/projects/gold-price-live/",
+    "repo": "https://github.com/Davinccci/GoldPrice",
+    "status": "online"
+  },
+  {
     "slug": "choose-your-city",
     "name": "Choose Your City",
     "subtitle": "城市选择交互页面",

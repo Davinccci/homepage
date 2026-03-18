@@ -1,0 +1,42 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#120C08"/>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1268" cy="178" r="240" fill="url(#glow1)" fill-opacity="0.82"/>
+  <circle cx="246" cy="758" r="252" fill="url(#glow2)" fill-opacity="0.4"/>
+  <rect x="88" y="92" width="1424" height="716" rx="40" fill="#FFFFFF" fill-opacity="0.04" stroke="#FFE7AB" stroke-opacity="0.16"/>
+  <text x="144" y="202" fill="#F6D365" font-family="Segoe UI, Arial, sans-serif" font-size="28" letter-spacing="8">LIVE GOLD DASHBOARD</text>
+  <text x="144" y="332" fill="#FFF3DE" font-family="Georgia, Times New Roman, serif" font-size="110" font-weight="700">Gold Pulse</text>
+  <text x="144" y="408" fill="#FFF3DE" fill-opacity="0.72" font-family="Segoe UI, Arial, sans-serif" font-size="34">国际现货黄金、人民币参考金价与今日自绘走势，全部收在同一页里。</text>
+  <rect x="144" y="486" width="372" height="150" rx="28" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.08"/>
+  <text x="178" y="536" fill="#FFF3DE" fill-opacity="0.72" font-family="Segoe UI, Arial, sans-serif" font-size="24">International Spot</text>
+  <text x="178" y="610" fill="#FFF3DE" font-family="Segoe UI, Arial, sans-serif" font-size="68" font-weight="700">$4,872.22</text>
+  <rect x="916" y="208" width="460" height="406" rx="30" fill="#FFFFFF" fill-opacity="0.04" stroke="#FFFFFF" stroke-opacity="0.08"/>
+  <path d="M964 522L1022 508L1080 474L1138 492L1196 438L1254 390L1320 330" stroke="url(#line)" stroke-width="12" stroke-linecap="round"/>
+  <path d="M964 522L1022 508L1080 474L1138 492L1196 438L1254 390L1320 330L1320 560L964 560Z" fill="url(#area)"/>
+  <circle cx="964" cy="522" r="10" fill="#FFF0C8"/>
+  <circle cx="1320" cy="330" r="12" fill="#FFF0C8"/>
+  <text x="964" y="266" fill="#FFF3DE" font-family="Segoe UI, Arial, sans-serif" font-size="24">Today Trend</text>
+  <text x="964" y="302" fill="#FFF3DE" fill-opacity="0.62" font-family="Segoe UI, Arial, sans-serif" font-size="22">Custom-drawn intraday line with domestic CNY reference</text>
+  <defs>
+    <linearGradient id="bg" x1="800" y1="0" x2="800" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2D1D13"/>
+      <stop offset="1" stop-color="#120C08"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1268 178) rotate(90) scale(240)">
+      <stop stop-color="#F6D365"/>
+      <stop offset="1" stop-color="#F6D365" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(246 758) rotate(90) scale(252)">
+      <stop stop-color="#FDA085"/>
+      <stop offset="1" stop-color="#FDA085" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="line" x1="964" y1="522" x2="1320" y2="330" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6D365"/>
+      <stop offset="1" stop-color="#FDA085"/>
+    </linearGradient>
+    <linearGradient id="area" x1="1142" y1="330" x2="1142" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6D365" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#F6D365" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+</svg>
